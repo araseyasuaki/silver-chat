@@ -2,16 +2,16 @@ import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { Link } from 'expo-router'
 
-const ticketImg1 = require('../assets/images/ticket-img-1.png');
-const ticketImg2 = require('../assets/images/ticket-img-2.png');
+const ticketImg = require('../assets/images/ticket-img.png');
 
 const index = () => {
   return (
-    <Link href='login' asChild>
+    <Link href='sign' asChild>
       <View style={s.main}>
-      <Image source={ticketImg1}/>
-      <Image source={ticketImg2}/>
-      <Text>Rrrrrrip</Text>
+        <View style={s.content}>
+          <Image source={ticketImg} style={s.img}/>
+          <Text style={s.text}>Rrrrrrip</Text>
+        </View>
       </View>
     </Link>
   )
@@ -24,5 +24,24 @@ const s = StyleSheet.create({
     backgroundColor: '#C995E0',
     width: '100vw',
     height: '100vh',
-  }
+    position: 'relative',
+  },
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [
+      { translateX: -50 },
+      { translateY: -50 },
+    ],
+  },
+  img: {
+    alignSelf: 'center',
+  },
+  text: {
+    alignSelf: 'center',
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginTop: 30,
+  },
 })
